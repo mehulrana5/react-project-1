@@ -43,7 +43,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router basename='/react-project-1'>
         <Navbar mode={mode} title='mehul' togglemode={togglemode}/>
         <Alert alert={alert} />
         <Routes>
