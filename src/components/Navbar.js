@@ -14,13 +14,12 @@ export default function Navbar(props){
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <Link className={`navbar-brand`} to="/home" style={
+                        <Link className={`navbar-brand`} to="/" style={
                             {
                                 color:props.mode==='dark'?'white':'black'
                             }}>{props.title}
                         </Link>
-                        <Link className='nav-link' to='/home' style={{color:Mystyle.color}}>Home</Link>
-                        <Link className='nav-link' to='/about' style={{color:Mystyle.color}}>About</Link>
+                        <Link className='nav-link' to='/' style={{color:Mystyle.color}}>Home</Link>
                     </ul>
                     <div className="form-check form-switch mx-3 my-3 navtoggle">
                         <input className="form-check-input mode" type="checkbox"  id="flexSwitchCheckChecked" onClick={props.togglemode}/>

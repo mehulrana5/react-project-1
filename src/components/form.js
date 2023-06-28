@@ -26,18 +26,10 @@ export default function Form(props) {
         // document.querySelector('label').innerHTML="Text Converted !!"
     }
     const txt_len = () => {
-        const txt = text.split(' ')
-        var crt = 0
-        for (let i = 0; i < txt.length; i++) {
-            if (txt[i] === '') {
-                continue
-            }
-            else {
-                crt++
-            }
-        }
-        setLen(crt)
-    }
+        const txt = text.split(/\s+/).filter(word => word !== '');
+        const crt = txt.length;
+        setLen(crt);
+    };
     const handelOnChange = (e) => {
         setText(e.target.value)
         txt_len()
@@ -45,21 +37,21 @@ export default function Form(props) {
     // console.log(txt_len);
     const [text, setText] = useState('enter text here');
     const [len, setLen] = useState(3);
-    const Mystyle={
-        color:props.mode === 'dark' ? 'white' : 'black',
+    const Mystyle = {
+        color: props.mode === 'dark' ? 'white' : 'black',
         backgroundColor: props.mode === 'dark' ? 'black' : 'white'
     }
     return (
         <div className='container form'>
             <h2>
                 <div className="mb-3 label-txt">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label" 
-                        style={{color:Mystyle.color}}>{props.heading}</label>
+                    <label htmlFor="exampleFormControlTextarea1" className="form-label"
+                        style={{ color: Mystyle.color }}>{props.heading}</label>
                     <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" value={text} onChange={handelOnChange}
                         style={
-                            { 
-                                color:Mystyle.color,
-                                backgroundColor:Mystyle.backgroundColor
+                            {
+                                color: Mystyle.color,
+                                backgroundColor: Mystyle.backgroundColor
                             }
                         }></textarea>
                 </div>
@@ -68,7 +60,7 @@ export default function Form(props) {
                 <button className={`btn btn-${props.btn_color} mx-1`} onClick={all_lower}>convert</button>
                 <section className='container info' style={
                     {
-                        color:Mystyle.color 
+                        color: Mystyle.color
                     }
                 }>
                     <h3>

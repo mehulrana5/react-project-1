@@ -2,7 +2,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Form from './components/form';
-import About from './components/About';
 import Alert from './components/Alert';
 import {
   BrowserRouter as Router,
@@ -25,7 +24,7 @@ function App() {
     })
     setTimeout(() => {
       setAlert(null)
-    }, 1000);
+    }, 2000);
   }
   const togglemode = () => {
     if (mode === 'dark') {
@@ -43,12 +42,11 @@ function App() {
 
   return (
     <>
-      <Router basename='/react-project-1'>
-        <Navbar mode={mode} title='mehul' togglemode={togglemode}/>
+      <Router>
+        <Navbar mode={mode} title='Text Editor' togglemode={togglemode}/>
         <Alert alert={alert} />
         <Routes>
-          <Route path='/about' element={<About />} />
-          <Route path='/home' element={<Form heading='enter the text' btn_color='primary' mode={mode} color={Colors}/>}/>
+          <Route path='/' element={<Form heading='enter the text' btn_color='primary' mode={mode} color={Colors}/>}/>
         </Routes>
       </Router>
     </>
